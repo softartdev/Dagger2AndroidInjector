@@ -10,13 +10,20 @@ import android.widget.TextView;
 import com.vogella.android.dagger2simple.R;
 import com.vogella.android.dagger2simple.ui.third.ThirdActivity;
 
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
+
 public class SecondActivity extends AppCompatActivity implements SecondView, View.OnClickListener {
     boolean mPresenterInjected;
 
     TextView textView;
 
+    @Inject SecondPresenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
@@ -25,6 +32,8 @@ public class SecondActivity extends AppCompatActivity implements SecondView, Vie
         textView = (TextView) findViewById(R.id.second_text_view);
 
         checkPresenter();
+
+        presenter.check();
     }
 
     private void checkPresenter() {
