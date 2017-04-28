@@ -1,6 +1,6 @@
-package com.vogella.android.dagger2simple.components;
+package com.vogella.android.dagger2simple.di.components;
 
-import com.vogella.android.dagger2simple.MainActivity;
+import com.vogella.android.dagger2simple.ui.main.MainActivity;
 
 import dagger.Subcomponent;
 import dagger.android.AndroidInjector;

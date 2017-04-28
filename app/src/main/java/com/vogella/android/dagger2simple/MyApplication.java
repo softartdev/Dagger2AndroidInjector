@@ -3,7 +3,7 @@ package com.vogella.android.dagger2simple;
 import android.app.Activity;
 import android.app.Application;
 
-import com.vogella.android.dagger2simple.components.DaggerIApplicationComponent;
+import com.vogella.android.dagger2simple.di.components.DaggerIApplicationComponent;
 
 import javax.inject.Inject;
 

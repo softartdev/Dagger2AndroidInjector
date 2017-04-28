@@ -1,9 +1,9 @@
-package com.vogella.android.dagger2simple.modules;
+package com.vogella.android.dagger2simple.di.modules;
 
 import android.app.Activity;
 
-import com.vogella.android.dagger2simple.MainActivity;
-import com.vogella.android.dagger2simple.components.IMainActivitySubcomponent;
+import com.vogella.android.dagger2simple.ui.main.MainActivity;
+import com.vogella.android.dagger2simple.di.components.IMainActivitySubcomponent;
 
 import dagger.Binds;
 import dagger.Module;
