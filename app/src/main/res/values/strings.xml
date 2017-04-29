@@ -3,4 +3,5 @@
     <string name="second">Second</string>
     <string name="presenter_injected">Presenter injected:</string>
     <string name="third">Third</string>
+    <string name="check_context">Check context</string>
 </resources>

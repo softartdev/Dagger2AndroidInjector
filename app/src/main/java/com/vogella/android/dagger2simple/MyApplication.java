@@ -16,7 +16,11 @@ public class MyApplication extends Application implements HasDispatchingActivity
     @Override
     public void onCreate() {
         super.onCreate();
-        DaggerIApplicationComponent.create().inject(this);
+        DaggerIApplicationComponent
+                .builder()
+                .application(this)
+                .build()
+                .inject(this);
     }
 
     @Override
