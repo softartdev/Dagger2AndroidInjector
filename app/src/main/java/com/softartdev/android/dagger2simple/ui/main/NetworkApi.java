@@ -1,4 +1,4 @@
-package com.vogella.android.dagger2simple;
+package com.softartdev.android.dagger2simple.ui.main;
 
 import javax.inject.Inject;
 
