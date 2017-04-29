@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.vogella.android.dagger2simple.ui.second.SecondActivity">
+    tools:context="com.softartdev.android.dagger2simple.ui.second.SecondActivity">
 
     <TextView
         android:id="@+id/second_text_view"
