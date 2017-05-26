@@ -4,10 +4,13 @@ import android.support.v4.app.Fragment;
 
 import com.softartdev.android.dagger2simple.di.components.DashboardFragmentSubcomponent;
 import com.softartdev.android.dagger2simple.di.components.HomeFragmentSubcomponent;
+import com.softartdev.android.dagger2simple.di.components.NotificationsFragmentSubcomponent;
 import com.softartdev.android.dagger2simple.ui.bottom.fragments.dashboard.DashboardFragment;
 import com.softartdev.android.dagger2simple.ui.bottom.fragments.dashboard.DashboardView;
 import com.softartdev.android.dagger2simple.ui.bottom.fragments.home.HomeFragment;
 import com.softartdev.android.dagger2simple.ui.bottom.fragments.home.HomeView;
+import com.softartdev.android.dagger2simple.ui.bottom.fragments.notifications.NotificationsFragment;
+import com.softartdev.android.dagger2simple.ui.bottom.fragments.notifications.NotificationsView;
 
 import java.util.Map;
 
@@ -18,7 +21,7 @@ import dagger.android.support.FragmentKey;
 import dagger.multibindings.IntoMap;
 import dagger.multibindings.Multibinds;
 
-@Module(subcomponents = {DashboardFragmentSubcomponent.class, HomeFragmentSubcomponent.class})
+@Module(subcomponents = {DashboardFragmentSubcomponent.class, HomeFragmentSubcomponent.class, NotificationsFragmentSubcomponent.class})
 public abstract class FragmentModule {
 
     @Multibinds
@@ -39,4 +42,12 @@ public abstract class FragmentModule {
 
     @Binds
     abstract HomeView provideHomeView(HomeFragment homeFragment);
+
+    @Binds
+    @IntoMap
+    @FragmentKey(NotificationsFragment.class)
+    abstract AndroidInjector.Factory<? extends Fragment> bindNotificationsFragmentInjectorFactory(NotificationsFragmentSubcomponent.Builder builder);
+
+    @Binds
+    abstract NotificationsView provideNotificationsView(NotificationsFragment notificationsFragment);
 }
