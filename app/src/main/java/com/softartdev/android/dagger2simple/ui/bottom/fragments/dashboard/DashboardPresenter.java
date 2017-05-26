@@ -4,10 +4,14 @@ import android.content.Context;
 
 import com.softartdev.android.dagger2simple.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 class DashboardPresenter {
     private DashboardView mView;
+    private int checks = 1;
 
     @Inject
     Context context;
@@ -19,6 +23,13 @@ class DashboardPresenter {
 
     void check() {
         String checked = context.getString(R.string.check_context);
-        mView.onCheck(checked);
+
+        List<String> dataSet = new ArrayList<>();
+        for (int i = 0; i < checks; i++) {
+            dataSet.add(checked + ": " + checks + " - " + i);
+        }
+        checks++;
+
+        mView.onCheck(checked, dataSet);
     }
 }
