@@ -17,8 +17,7 @@ import dagger.android.support.HasDispatchingSupportFragmentInjector;
 
 public class BottomActivity extends AppCompatActivity implements HasDispatchingSupportFragmentInjector, BottomView, BottomNavigationView.OnNavigationItemSelectedListener {
     @Inject DispatchingAndroidInjector<Fragment> fragmentInjector;
-
-    BottomPresenter mPresenter;
+    @Inject BottomPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +27,6 @@ public class BottomActivity extends AppCompatActivity implements HasDispatchingS
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
-
-        mPresenter = new BottomPresenter(this);
     }
 
     @Override

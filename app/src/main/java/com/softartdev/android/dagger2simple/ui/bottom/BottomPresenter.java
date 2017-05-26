@@ -4,6 +4,8 @@ import com.softartdev.android.dagger2simple.ui.bottom.fragments.dashboard.Dashbo
 import com.softartdev.android.dagger2simple.ui.bottom.fragments.home.HomeFragment;
 import com.softartdev.android.dagger2simple.ui.bottom.fragments.notifications.NotificationsFragment;
 
+import javax.inject.Inject;
+
 class BottomPresenter {
     private BottomView mView;
 
@@ -11,6 +13,7 @@ class BottomPresenter {
     private HomeFragment mHomeFragment = new HomeFragment();
     private NotificationsFragment mNotificationsFragment = new NotificationsFragment();
 
+    @Inject
     BottomPresenter(BottomView view) {
         mView = view;
     }
