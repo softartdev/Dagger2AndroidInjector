@@ -13,15 +13,19 @@ import android.widget.TextView;
 
 import com.softartdev.android.dagger2simple.R;
 
+import javax.inject.Inject;
+
+import dagger.android.support.AndroidSupportInjection;
+
 public class DashboardFragment extends Fragment implements DashboardView, View.OnClickListener {
     TextView dashboardTextView;
 
-    DashboardPresenter mPresenter;
+    @Inject DashboardPresenter mPresenter;
 
     @Override
     public void onAttach(Context context) {
+        AndroidSupportInjection.inject(this);
         super.onAttach(context);
-        mPresenter = new DashboardPresenter(this);
     }
 
     @Nullable
@@ -36,8 +40,8 @@ public class DashboardFragment extends Fragment implements DashboardView, View.O
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onCheck() {
-        dashboardTextView.setText("Presenter is work");
+    public void onCheck(String checked) {
+        dashboardTextView.setText(checked);
     }
 
     @Override
