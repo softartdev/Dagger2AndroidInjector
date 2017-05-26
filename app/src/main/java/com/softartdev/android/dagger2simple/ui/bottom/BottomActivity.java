@@ -8,9 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.softartdev.android.dagger2simple.R;
-import com.softartdev.android.dagger2simple.ui.bottom.fragments.dashboard.DashboardFragment;
-import com.softartdev.android.dagger2simple.ui.bottom.fragments.home.HomeFragment;
-import com.softartdev.android.dagger2simple.ui.bottom.fragments.notifications.NotificationsFragment;
 
 import javax.inject.Inject;
 
@@ -18,12 +15,10 @@ import dagger.android.AndroidInjection;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasDispatchingSupportFragmentInjector;
 
-public class BottomActivity extends AppCompatActivity implements HasDispatchingSupportFragmentInjector, BottomNavigationView.OnNavigationItemSelectedListener {
+public class BottomActivity extends AppCompatActivity implements HasDispatchingSupportFragmentInjector, BottomView, BottomNavigationView.OnNavigationItemSelectedListener {
     @Inject DispatchingAndroidInjector<Fragment> fragmentInjector;
 
-    DashboardFragment mDashboardFragment;
-    HomeFragment mHomeFragment;
-    NotificationsFragment mNotificationsFragment;
+    BottomPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,31 +28,30 @@ public class BottomActivity extends AppCompatActivity implements HasDispatchingS
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(this);
+
+        mPresenter = new BottomPresenter(this);
+    }
+
+    @Override
+    public void onFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.content, fragment).commit();
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.navigation_home:
-                if (mHomeFragment == null) {
-                    mHomeFragment = new HomeFragment();
-                }
-                getSupportFragmentManager().beginTransaction().replace(R.id.content, mHomeFragment).commit();
+                mPresenter.home();
                 return true;
             case R.id.navigation_dashboard:
-                if (mDashboardFragment == null) {
-                    mDashboardFragment = new DashboardFragment();
-                }
-                getSupportFragmentManager().beginTransaction().replace(R.id.content, mDashboardFragment).commit();
+                mPresenter.dashboard();
                 return true;
             case R.id.navigation_notifications:
-                if (mNotificationsFragment == null) {
-                    mNotificationsFragment = new NotificationsFragment();
-                }
-                getSupportFragmentManager().beginTransaction().replace(R.id.content, mNotificationsFragment).commit();
+                mPresenter.notifications();
                 return true;
+            default:
+                return false;
         }
-        return false;
     }
 
     @Override
