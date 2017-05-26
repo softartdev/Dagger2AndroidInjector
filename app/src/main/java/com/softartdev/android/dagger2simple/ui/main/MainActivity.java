@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.softartdev.android.dagger2simple.R;
+import com.softartdev.android.dagger2simple.ui.bottom.BottomActivity;
 import com.softartdev.android.dagger2simple.ui.second.SecondActivity;
 
 import javax.inject.Inject;
@@ -24,12 +25,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        boolean injected =  networkApi == null ? false : true;
+        boolean injected = networkApi != null;
         TextView userAvailable = (TextView) findViewById(R.id.target);
         userAvailable.setText("Dependency injection worked: " + String.valueOf(injected));
 
-        Button button = (Button) findViewById(R.id.main_button);
-        button.setOnClickListener(this);
+        Button secondButton = (Button) findViewById(R.id.main_button);
+        secondButton.setOnClickListener(this);
+
+        Button bottomButton = (Button) findViewById(R.id.bottom_button);
+        bottomButton.setOnClickListener(this);
     }
 
     @Override
@@ -37,6 +41,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.main_button:
                 startActivity(new Intent(this, SecondActivity.class));
+                break;
+            case R.id.bottom_button:
+                startActivity(new Intent(this, BottomActivity.class));
                 break;
         }
     }

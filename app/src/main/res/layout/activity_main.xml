@@ -9,14 +9,28 @@
         android:id="@+id/target"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello" />
+        android:text="Hello"
+        tools:ignore="HardcodedText"/>
 
     <Button
         android:id="@+id/main_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:text="@string/second"/>
+
+    <Button
+        android:id="@+id/bottom_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:text="@string/bottom"/>
 
 </RelativeLayout>

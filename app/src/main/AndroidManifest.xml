@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="com.softartdev.android.dagger2simple">
 
     <application
-        android:name="com.softartdev.android.dagger2simple.App"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
-            android:name="com.softartdev.android.dagger2simple.ui.main.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -17,9 +19,18 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.softartdev.android.dagger2simple.ui.second.SecondActivity">
+        <activity android:name=".ui.second.SecondActivity">
         </activity>
-        <activity android:name="com.softartdev.android.dagger2simple.ui.third.ThirdActivity">
+        <activity android:name=".ui.third.ThirdActivity">
+        </activity>
+        <activity
+            android:name=".ui.bottom.BottomActivity"
+            android:label="@string/title_activity_bottom"
+            android:parentActivityName=".ui.main.MainActivity"
+            tools:ignore="UnusedAttribute">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.softartdev.android.dagger2simple.ui.main.MainActivity"/>
         </activity>
     </application>
 
