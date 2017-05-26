@@ -9,4 +9,5 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="bottom">Bottom</string>
+    <string name="check_presenter">Check presenter</string>
 </resources>
