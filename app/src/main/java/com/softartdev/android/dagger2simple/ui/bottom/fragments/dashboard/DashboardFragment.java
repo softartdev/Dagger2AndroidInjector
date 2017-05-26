@@ -59,6 +59,11 @@ public class DashboardFragment extends Fragment implements DashboardView, View.O
     }
 
     @Override
+    public void onItemCheck(String itemCheck) {
+        dashboardTextView.setText(itemCheck);
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.dashboard_button:

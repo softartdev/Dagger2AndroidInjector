@@ -1,6 +1,5 @@
 package com.softartdev.android.dagger2simple.ui.bottom.fragments.dashboard;
 
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +16,12 @@ import javax.inject.Inject;
 class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.ViewHolder> implements View.OnClickListener {
     private List<String> dataList;
     private RecyclerView mRecyclerView;
+    private DashboardView mView;
 
     @Inject
-    public DashboardAdapter() {
+    public DashboardAdapter(DashboardView dashboardView) {
         dataList = Collections.emptyList();
+        mView = dashboardView;
     }
 
     public void setData(List<String> dataSet) {
@@ -55,7 +56,7 @@ class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.ViewHolder>
     @Override
     public void onClick(View v) {
         int p = mRecyclerView.getChildLayoutPosition(v);
-        Snackbar.make(v, dataList.get(p), Snackbar.LENGTH_SHORT).show();
+        mView.onItemCheck(dataList.get(p));
     }
 
     @Override
