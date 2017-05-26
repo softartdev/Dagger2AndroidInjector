@@ -1,6 +1,5 @@
 package com.softartdev.android.dagger2simple.ui.bottom.fragments.dashboard;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -38,7 +37,6 @@ public class DashboardFragment extends Fragment implements DashboardView, View.O
         return view;
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     public void onCheck(String checked) {
         dashboardTextView.setText(checked);
