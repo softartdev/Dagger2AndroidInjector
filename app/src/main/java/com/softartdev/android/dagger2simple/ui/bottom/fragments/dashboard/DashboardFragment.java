@@ -47,6 +47,8 @@ public class DashboardFragment extends Fragment implements DashboardView, View.O
         Button checkButton = (Button) view.findViewById(R.id.dashboard_button);
         checkButton.setOnClickListener(this);
 
+        mPresenter.current();
+
         return view;
     }
 

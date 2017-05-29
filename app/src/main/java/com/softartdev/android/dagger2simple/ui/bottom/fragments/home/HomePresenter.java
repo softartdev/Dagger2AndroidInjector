@@ -4,10 +4,13 @@ import android.content.Context;
 
 import com.softartdev.android.dagger2simple.R;
 
+import java.util.Random;
+
 import javax.inject.Inject;
 
 class HomePresenter {
     private HomeView mView;
+    private Random mRandom = new Random();
 
     @Inject
     Context context;
@@ -19,6 +22,9 @@ class HomePresenter {
 
     void check() {
         String checked = context.getString(R.string.check_context);
-        mView.onCheck(checked);
+        String firstData = String.valueOf(mRandom.nextInt(1000));
+        String secondData = String.valueOf(mRandom.nextInt(1000));
+        String thirdData = String.valueOf(mRandom.nextInt(1000));
+        mView.onCheck(checked, firstData, secondData, thirdData);
     }
 }

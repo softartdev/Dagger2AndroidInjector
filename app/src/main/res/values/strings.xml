@@ -10,4 +10,7 @@
     <string name="title_notifications">Notifications</string>
     <string name="bottom">Bottom</string>
     <string name="check_presenter">Check presenter</string>
+    <string name="enter_first_data">Entert first data</string>
+    <string name="enter_second_data">Enter second data</string>
+    <string name="enter_third_data">Enter third data</string>
 </resources>

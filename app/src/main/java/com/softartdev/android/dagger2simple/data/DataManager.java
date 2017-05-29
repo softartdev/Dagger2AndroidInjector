@@ -17,6 +17,10 @@ public class DataManager {
     }
 
     public List<String> getDataSet() {
+        return mDataSet;
+    }
+
+    public List<String> getIncreaseDataSet() {
         String checked = mContext.getString(R.string.check_context);
         mDataSet.clear();
         for (int i = 0; i < checks; i++) {
