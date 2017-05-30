@@ -32,6 +32,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.softartdev.android.dagger2simple.ui.main.MainActivity"/>
         </activity>
+        <activity
+            android:name=".ui.scroll.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:parentActivityName=".ui.main.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.softartdev.android.dagger2simple.ui.main.MainActivity"/>
+        </activity>
     </application>
 
 </manifest>
