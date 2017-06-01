@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.softartdev.android.dagger2simple.R;
+import com.softartdev.android.dagger2simple.util.BottomNavigationViewHelper;
 
 import javax.inject.Inject;
 
@@ -25,8 +26,9 @@ public class BottomActivity extends AppCompatActivity implements HasDispatchingS
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(this);
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
     }
 
     @Override
