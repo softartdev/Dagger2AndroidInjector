@@ -46,6 +46,8 @@ public class BottomActivity extends AppCompatActivity implements HasDispatchingS
             case R.id.navigation_notifications:
                 mPresenter.notifications();
                 return true;
+            case R.id.navigation_cat:
+                return true;
             default:
                 return false;
         }
